@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LanzamientoDadosApp</string>
+    <string name="roll_dice">Lanza el dado!!!!</string>
 </resources>
