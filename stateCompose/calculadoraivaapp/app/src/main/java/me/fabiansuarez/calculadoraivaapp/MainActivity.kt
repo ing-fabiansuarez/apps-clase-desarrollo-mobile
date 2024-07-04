@@ -24,11 +24,14 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusTargetModifierNode
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -55,6 +58,15 @@ fun MyApp() {
 
 @Composable
 fun FormTaxesLayout() {
+    //var amountInput = "0"
+    var amountInput by remember {
+        mutableStateOf("")
+    }
+
+    val amount = amountInput.toDoubleOrNull() ?: 0.0
+
+    val tax = calculateTax(amount)
+
     Column(
         modifier = Modifier
             .padding(40.dp)
@@ -70,12 +82,16 @@ fun FormTaxesLayout() {
                 .align(alignment = Alignment.Start)
         )
         EditNumberField(
+            value = amountInput,
+            onValueChange = {
+                amountInput = it
+            },
             modifier = Modifier
                 .padding(bottom = 32.dp)
                 .fillMaxWidth()
         )
         Text(
-            text = "Calculo de impuesto: $0.00",
+            text = stringResource(R.string.calculo_de_impuesto,tax),
             style = MaterialTheme.typography.headlineSmall
         )
         Spacer(modifier = Modifier.height(150.dp))
@@ -83,15 +99,11 @@ fun FormTaxesLayout() {
 }
 
 @Composable
-fun EditNumberField(modifier: Modifier = Modifier) {
-    //var amountInput = "0"
-    var amountInput = remember {
-        mutableStateOf("")
-    }
-
-    val amount = amountInput.value.toDoubleOrNull() ?: 0.0
-
-    val tax = calculateTax(amount)
+fun EditNumberField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
 
 
     /*TextField(
@@ -99,12 +111,10 @@ fun EditNumberField(modifier: Modifier = Modifier) {
         .....
     )*/
     TextField(
-        value = amountInput.value,
-        onValueChange = {
-            amountInput.value = it
-        },
+        value = value,
+        onValueChange = onValueChange,
         label = {
-                Text(text = "Cantidad a calcular")
+            Text(text = "Cantidad a calcular")
         },
         singleLine = true,//Esto condensa el cuadro de texto en una sola línea desplazable horizontalmente a partir de varias líneas.
         modifier = modifier,

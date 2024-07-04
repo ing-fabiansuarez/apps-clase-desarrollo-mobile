@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CalculadoraIVAApp</string>
+    <string name="calculo_de_impuesto">Calculo de impuesto: %s</string>
 </resources>
