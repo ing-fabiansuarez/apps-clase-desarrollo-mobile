@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,6 +22,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -36,6 +38,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusTargetModifierNode
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -90,6 +93,7 @@ fun FormTaxesLayout() {
         )
         EditNumberField(
             label = R.string.cantidad_a_calcular,
+            leadingIcon = R.drawable.money,
             value = amountInput,
             onValueChange = {
                 amountInput = it
@@ -104,6 +108,7 @@ fun FormTaxesLayout() {
         )
         EditNumberField(
             label = R.string.porcentaje,
+            leadingIcon = R.drawable.percent,
             value = taxInput,
             onValueChange = {
                 taxInput = it
@@ -132,6 +137,7 @@ fun FormTaxesLayout() {
 @Composable
 fun EditNumberField(
     @StringRes label: Int,
+    @DrawableRes leadingIcon: Int,
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -143,6 +149,7 @@ fun EditNumberField(
         label = {
             Text(text = stringResource(label))
         },
+        leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
         singleLine = true,//Esto condensa el cuadro de texto en una sola línea desplazable horizontalmente a partir de varias líneas.
         modifier = modifier,
         keyboardOptions = keyboardOptions
