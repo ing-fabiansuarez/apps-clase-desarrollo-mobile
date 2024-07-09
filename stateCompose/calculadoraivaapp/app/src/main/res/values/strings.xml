@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">CalculadoraIVAApp</string>
-    <string name="calculo_de_impuesto">Calculo de impuesto: %s</string>
-    <string name="cantidad_a_calcular">Cantidad a calcular</string>
-    <string name="porcentaje">Porcentaje</string>
-    <string name="redondear_el_resultado">Redondear el resultado</string>
-</resources>
