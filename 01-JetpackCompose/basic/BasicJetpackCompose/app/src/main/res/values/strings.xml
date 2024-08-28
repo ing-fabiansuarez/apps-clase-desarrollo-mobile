@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BasicJetpackCompose</string>
+    <string name="mi_nombre_es">Mi nombre es %1$s</string>
+    <string name="lenguajes">Lenguajes:</string>
+</resources>

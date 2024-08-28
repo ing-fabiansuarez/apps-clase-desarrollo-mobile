@@ -41,6 +41,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -55,14 +57,14 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.unscramble.R
 import com.example.unscramble.ui.theme.UnscrambleTheme
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.collectAsState
 
 @Composable
 fun GameScreen(
     gameViewModel: GameViewModel = viewModel()
 ) {
-    val gameUiState by gameViewModel.uiState.collectAsState()
+    val gameUiState: GameUiState by gameViewModel.uiState.collectAsState()
+
+
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
 
     Column(
@@ -80,16 +82,14 @@ fun GameScreen(
             style = typography.titleLarge,
         )
         GameLayout(
-            onUserGuessChanged = { gameViewModel.updateUserGuess(it) },
-            onKeyboardDone = { gameViewModel.checkUserGuess() },
-            userGuess = gameViewModel.userGuess,
             currentScrambledWord = gameUiState.currentScrambledWord,
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
                 .padding(mediumPadding),
-            isGuessWrong = gameUiState.isGuessedWordWrong,
-        )
+            onUserGuessChanged = { gameViewModel.updateUserGuess(it) },
+            userGuess = gameViewModel.userGuess
+            )
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -100,7 +100,7 @@ fun GameScreen(
 
             Button(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = { gameViewModel.checkUserGuess() }
+                onClick = { }
             ) {
                 Text(
                     text = stringResource(R.string.submit),
@@ -139,13 +139,10 @@ fun GameStatus(score: Int, modifier: Modifier = Modifier) {
 @Composable
 fun GameLayout(
     currentScrambledWord: String,
-    modifier: Modifier = Modifier,
     userGuess: String,
-    onUserGuessChanged: (String) -> Unit,
-    onKeyboardDone: () -> Unit,
-    isGuessWrong: Boolean,
-
-    ) {
+    modifier: Modifier = Modifier,
+    onUserGuessChanged: (String) -> Unit
+) {
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
 
     Card(
@@ -176,6 +173,11 @@ fun GameLayout(
                 textAlign = TextAlign.Center,
                 style = typography.titleMedium
             )
+            Text(
+                text = userGuess,
+                textAlign = TextAlign.Center,
+                style = typography.titleMedium
+            )
             OutlinedTextField(
                 value = userGuess,
                 singleLine = true,
@@ -187,19 +189,13 @@ fun GameLayout(
                     disabledContainerColor = colorScheme.surface,
                 ),
                 onValueChange = onUserGuessChanged,
-                label = {
-                    if (isGuessWrong) {
-                        Text(stringResource(R.string.wrong_guess))
-                    } else {
-                        Text(stringResource(R.string.enter_your_word))
-                    }
-                },
+                label = { Text(stringResource(R.string.enter_your_word)) },
                 isError = false,
                 keyboardOptions = KeyboardOptions.Default.copy(
                     imeAction = ImeAction.Done
                 ),
                 keyboardActions = KeyboardActions(
-                    onDone = { onKeyboardDone() }
+                    onDone = { }
                 )
             )
         }
@@ -234,7 +230,6 @@ private fun FinalScoreDialog(
             ) {
                 Text(text = stringResource(R.string.exit))
             }
-            LocalContext
         },
         confirmButton = {
             TextButton(onClick = onPlayAgain) {

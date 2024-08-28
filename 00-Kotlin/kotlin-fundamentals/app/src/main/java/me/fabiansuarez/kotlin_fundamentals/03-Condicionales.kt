@@ -1,12 +1,19 @@
 package me.fabiansuarez.kotlin_fundamentals
 
 fun main() {
-    val trafficLightColor = "Green"
+    login(email = "prueba@unab.edu.co", password = "123456")
+}
 
-    if (trafficLightColor == "Red") {
-        println("Stop")
-    } else {
-        println(message = "Go")
+fun login(email: String, password: String) : Boolean{
+    val emailData = "admin@unab.edu.co"
+    val passwordData = "admin"
+
+    if (email == emailData && password == passwordData){
+        println("Inicio de Sesion")
+        return true
+    }else{
+        println("Error de inicio de sesion")
+        return false
     }
 }
 
