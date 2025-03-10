@@ -2,9 +2,44 @@ package me.fabiansuarez.kotlin_fundamentals
 
 
 fun main() {
+
+    val productsList1: ArrayList<String> = arrayListOf("pantalla", "teclado", "mouse")
+    println(productsList1)
+    //agregar elementos
+    productsList1.add("mousepad")
+    println(productsList1)
+    println(productsList1[3])
+
     println("##############################################")
     println("######## ESTRUCTURAS DE DATOS ################")
     println("##############################################")
+    println()
+    println("####### ARREGLOS ########")
+
+    //arreglos
+    var arreglo = arrayOf("pepe", "Juan", "Maria")
+
+    println(arreglo.size)
+    println("Accediendo a la posicion 2 = " + arreglo[2])
+    arreglo[0] = "Ana"
+    println("Accediendo a la posicion 0 = " + arreglo.get(0))
+
+    //LISTAS
+    /*
+    Listas Inmutables: listOf, setOf
+    Listas mutables: mutableListOf, arrayListOf, mutableSetOf
+     */
+    println("####### LISTAS ########")
+
+    val list = mutableListOf(1, 2, 3, 4, 5)
+
+    println(list)
+    list.add(6)
+    println(list)
+
+    println(list[3])
+
+
 
     //ARRAY LIST
     val productsList: ArrayList<String> = arrayListOf("pantalla", "teclado", "mouse")
