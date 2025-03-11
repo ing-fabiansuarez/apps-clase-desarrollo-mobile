@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6e1b0c2-0d32-413b-b423-626c10cfc652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../01-JetpackCompose/corrutinas/basic-android-kotlin-compose-training-mars-photos-starter/app/src/main/java/com/example/marsphotos/network/MarsApiService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01-JetpackCompose/arquitecture/basic-android-kotlin-compose-training-unscramble-starter/app/src/main/java/com/example/unscramble/ui/GameScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../01-JetpackCompose/arquitecture/basic-android-kotlin-compose-training-unscramble-starter/app/src/main/java/com/example/unscramble/ui/GameScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01-JetpackCompose/arquitecture/basic-android-kotlin-compose-training-unscramble-starter/app/src/main/java/com/example/unscramble/ui/GameUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../01-JetpackCompose/arquitecture/basic-android-kotlin-compose-training-unscramble-starter/app/src/main/java/com/example/unscramble/ui/GameUiState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01-JetpackCompose/arquitecture/basic-android-kotlin-compose-training-unscramble-starter/app/src/main/java/com/example/unscramble/ui/GameViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../01-JetpackCompose/arquitecture/basic-android-kotlin-compose-training-unscramble-starter/app/src/main/java/com/example/unscramble/ui/GameViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kotlin-fundamentals/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin-fundamentals/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kotlin-fundamentals/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin-fundamentals/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kotlin-fundamentals/.idea/other.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01-JetpackCompose/basic/BasicJetpackCompose/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../01-JetpackCompose/basic/BasicJetpackCompose/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01-JetpackCompose/basic/BasicJetpackCompose/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../01-JetpackCompose/basic/BasicJetpackCompose/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01-JetpackCompose/basic/BasicJetpackCompose/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../01-JetpackCompose/basic/BasicJetpackCompose/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01-JetpackCompose/basic/BasicJetpackCompose/.idea/other.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +25,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "ing-fabiansuarez"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ing-fabiansuarez/apps-clase-desarrollo-mobile.git",
+    "accountId": "a5df4c35-9b93-4f15-a9fd-edb91ea2346b"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2kIBVZLUBWjS6CHbzOABQPi7Q30" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,7 +54,7 @@
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/fabian/mys.software/AndroidStudioProjects/apps-clase-desarrollo-mobile/00-Kotlin/kotlin-fundamentals"
+    "last_opened_file_path": "C:/Users/Fabian/Documents/app_moviles/apps-clase-desarrollo-mobile/00-Kotlin"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

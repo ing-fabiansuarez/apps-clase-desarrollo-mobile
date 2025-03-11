@@ -38,20 +38,29 @@ fun ProductDetailScreen() {
                 }
             )
         }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp)
+    ) { innerPadding  ->
+        ContentScaffole(modifier = Modifier.padding(innerPadding))
+
+    }
+}
+
+@Composable
+fun ContentScaffole(modifier: Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(12.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White),
+            elevation = CardDefaults.cardElevation(4.dp)
         ) {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
-                elevation = CardDefaults.cardElevation(4.dp)
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
+            Column(modifier = Modifier.padding(16.dp)) {
+
+                // Imagen del Producto
+                Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd) {
                     Image(
                         painter = painterResource(id = R.drawable.img_computer),
                         contentDescription = "Imagen del Producto",
@@ -59,73 +68,69 @@ fun ProductDetailScreen() {
                             .fillMaxWidth()
                             .height(250.dp)
                     )
-                    // Imagen del Producto
-                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd) {
-
-                        IconButton(onClick = { /* TODO: Acción de favorito */ }) {
-                            Icon(
-                                imageVector = Icons.Default.Favorite,
-                                contentDescription = "Agregar a favoritos",
-                                tint = Color.Yellow
-                            )
-                        }
-
+                    IconButton(onClick = { /* TODO: Acción de favorito */ }) {
+                        Icon(
+                            imageVector = Icons.Default.Favorite,
+                            contentDescription = "Agregar a favoritos",
+                            tint = Color.Yellow
+                        )
                     }
 
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    // Información del Producto
-                    Text("Nombre del Producto", fontSize = 22.sp, fontWeight = FontWeight.Bold)
-                    Text(
-                        "$99.99",
-                        fontSize = 28.sp,
-                        color = Color.Green,
-                        fontWeight = FontWeight.Bold
-                    )
-
-                    Spacer(modifier = Modifier.height(8.dp))
-                    HorizontalDivider()
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    // Descripción del Producto
-                    Text("Descripción del producto con detalles importantes, características y beneficios.")
-
-                    Spacer(modifier = Modifier.height(16.dp))
                 }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Información del Producto
+                Text("Nombre del Producto", fontSize = 22.sp, fontWeight = FontWeight.Bold)
+                Text(
+                    "$99.99",
+                    fontSize = 28.sp,
+                    color = Color.Green,
+                    fontWeight = FontWeight.Bold
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+                HorizontalDivider()
+                Spacer(modifier = Modifier.height(8.dp))
+
+                // Descripción del Producto
+                Text("Descripción del producto con detalles importantes, características y beneficios.")
+
+                Spacer(modifier = Modifier.height(16.dp))
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Botones de Acción
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Button(
+                onClick = { /* TODO: Agregar al carrito */ },
+                modifier = Modifier.weight(1f)
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Edit,
+                    contentDescription = "Editar"
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("Editar")
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Botones de Acción
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            Button(
+                onClick = { /* TODO: Comprar ahora */ },
+                modifier = Modifier.weight(1f),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
             ) {
-                Button(
-                    onClick = { /* TODO: Agregar al carrito */ },
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.Edit,
-                        contentDescription = "Editar"
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text("Editar")
-                }
-
-                Button(
-                    onClick = { /* TODO: Comprar ahora */ },
-                    modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.Delete,
-                        contentDescription = "Eliminar",
-                        tint = Color.White
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text("Eliminar", color = Color.White)
-                }
+                Icon(
+                    imageVector = Icons.Filled.Delete,
+                    contentDescription = "Eliminar",
+                    tint = Color.White
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("Eliminar", color = Color.White)
             }
         }
     }
