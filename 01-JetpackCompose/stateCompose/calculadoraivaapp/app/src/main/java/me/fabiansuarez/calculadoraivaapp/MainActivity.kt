@@ -148,6 +148,8 @@ fun EditNumberField(
         onValueChange = onValueChange,
         label = {
             Text(text = stringResource(label))
+
+
         },
         leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
         singleLine = true,//Esto condensa el cuadro de texto en una sola línea desplazable horizontalmente a partir de varias líneas.

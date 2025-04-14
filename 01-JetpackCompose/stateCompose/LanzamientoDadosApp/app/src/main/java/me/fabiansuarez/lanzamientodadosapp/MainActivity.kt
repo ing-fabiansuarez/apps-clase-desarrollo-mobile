@@ -11,8 +11,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
@@ -41,6 +45,7 @@ private fun MyApp() {
     DiceWithButtonAndImage()
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun DiceWithButtonAndImage(modifier: Modifier = Modifier.fillMaxSize()) {
     var result by remember {
@@ -55,16 +60,33 @@ private fun DiceWithButtonAndImage(modifier: Modifier = Modifier.fillMaxSize()) 
         else -> R.drawable.dice_6
     }
     val painter = painterResource(id = imageResource)
-    Column(
-        modifier = modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Image(painter = painter, contentDescription = result.toString())
-        Button(onClick = {
-            result = (1..6).random()
-        }) {
-            Text(text = stringResource(R.string.roll_dice))
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(text = "Lanzar Dado App")
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                )
+            )
+        }
+    ) { innerPadding ->
+        Column(
+            modifier = modifier
+                .padding(innerPadding)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Image(painter = painter, contentDescription = result.toString())
+            Button(onClick = {
+                result = (1..6).random()
+            }) {
+                Text(text = stringResource(R.string.roll_dice))
+            }
         }
     }
+
 }
