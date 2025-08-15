@@ -1,5 +1,8 @@
 package me.fabiansuarez.kotlin_fundamentals
 
+import androidx.compose.runtime.Composable
+
+
 fun main() {
     // ==============================================
     // Simulación de un Composable con Prints
